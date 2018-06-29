@@ -82,7 +82,7 @@ class createBackgrounds {
 				$images .= "  <file>".$this->dir.$value."</file>\n";
 				$images .= "</static>\n";
 				$images .= "<transition>\n";
-				$images .= "  <duration>".$this->transistionDuration."</duration>\n";
+				$images .= "  <duration>".$this->transitionDuration."</duration>\n";
 				$images .= "  <from>".$this->dir.$value."</from>\n";
 				if($next <= $endKey){
 					//echo $next . "<to>".$this->dir.$this->images[$next]."</to>\n";
