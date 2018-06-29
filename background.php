@@ -7,19 +7,28 @@
  * to be used. Make sure that only image files are in this directory. 
  */	
 class createBackgrounds {
-
+		
+	// Folder where photos to be used are
 	private $dir = '/home/kyle/Pictures/Backgrounds/';	
 	private $images = array();
 	
+	// xml filename
 	private $xmlFileName = 'xenial.xml';
+	// fopen File Mode
 	private $xmlFileMode = 'w';
 	
+	// Make Sure this is set to time in past to start immediately
 	private $year = '2009';
 	private $month = '08';
 	private $day = '04';
 	private $hour = '00';
 	private $minute = '00';
-	private $second = '00';
+	private $second = '10';
+	
+	// How Long Photo is Displayed For, in seconds
+	private $displayDuration = 1795.0; // 60 = 1 minute
+	// Time transitioning between photos, in seconds
+	private $transitionDuration = 5.0;
 		
 	function __construct() {
 		//$this->makeFile();
@@ -69,11 +78,11 @@ class createBackgrounds {
 				
 				$images = "";
 				$images .= "<static>\n";
-				$images .= "  <duration>1795.0</duration>\n";
+				$images .= "  <duration>".$this->displayDuration."</duration>\n";
 				$images .= "  <file>".$this->dir.$value."</file>\n";
 				$images .= "</static>\n";
 				$images .= "<transition>\n";
-				$images .= "  <duration>5.0</duration>\n";
+				$images .= "  <duration>".$this->transistionDuration."</duration>\n";
 				$images .= "  <from>".$this->dir.$value."</from>\n";
 				if($next <= $endKey){
 					//echo $next . "<to>".$this->dir.$this->images[$next]."</to>\n";
